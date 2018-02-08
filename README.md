@@ -20,7 +20,7 @@ Add the following line to your app's `build.gradle`:
 ```groovy
 repositories {
     maven {
-        url "https://puresdkmaven.azurewebsites.net/artifacts/"
+        url <REPOSITORY-URL>
     }
 }
 ```
