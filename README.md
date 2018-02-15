@@ -251,7 +251,7 @@ The following is an example of an geo location event. All of these data are sent
 The SDK provides methods to send additional *metadata* about the user or device in addition to *events*. The difference between *metadata* and *events*, is that *metadata* will replace any existing data with the same *type* while *events* will be added and never replaced even when using the same *name*
 
 ### Add metadata
-To add metadata, use *Pure.associateMetadata(String type, JSONObject data, final PureCallback<PureResult> callback)*. The *type* has to be unique for each model you want to preserve. If sending userinfo, is would look something like this:
+To add metadata, use *Pure.associateMetadata(String type, JSONObject data, final PureCallback<PureResult> callback)*. The *type* has to be unique for each model you want to preserve. If sending userinfo, is could look something like this:
 
 ```java
                 JSONObject data = new JSONObject();
