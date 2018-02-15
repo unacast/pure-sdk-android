@@ -5,7 +5,7 @@
 The Android SDK is available for applications targeting API level 14 and above. Please note that BLE scanning is only available for users running on API level 18 and later.
 
 ### Dependencies
-The Android SDK uses the Google Awareness API 11.8.0 (play-services-awareness) to gather location data. The dependency is included in the package, but may be overriden by your application. Please note that version 11 or later is required.
+The Android SDK uses the Google Awareness API 11.8.0 (play-services-awareness) to gather location data. The dependency is included in the package, but may be overriden by your application. Please note that version 11.6.0 or later is required.
 
 As the SDK is providing the possibility to target users in other contexts, it also relies on the AdvertisingId of the device. For this reason, the SDK also relies on Google Play Services Ads (play-services-ads).
 
