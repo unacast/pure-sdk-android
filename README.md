@@ -31,7 +31,7 @@ Add the below line to your app's `build.gradle` inside the `dependencies` sectio
 compile 'com.pure:sdk:1+'
 ```
 
-The above reference will get the latest stable release of the SDK. For even more control, you may reference a sepcific release. The current latest release is com.pure:sdk:1.0.3 
+The above reference will get the latest stable release of the SDK. For even more control, you may reference a specific release. The current latest release is com.pure:sdk:1.0.3 
 
 ### Usage
 The SDK is initialized automatically on launch, but it will not gather any data unless you choose to start tracking movement.
