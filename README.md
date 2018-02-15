@@ -247,6 +247,76 @@ The following is an example of an geo location event. All of these data are sent
 }
 ```
 
+## Metadata and events
+The SDK provides methods to send additional metadata about the user or device in addition to events. The difference between metadata and events, is that metadata will replace any existing data with the same *type* while events will be added and never replaced even when using the same *name*
+
+### Add metadata
+To add metadata, use *Pure.associateMetadata(String type, JSONObject data, final PureCallback<PureResult> callback)*. The *type* has to be unique for each model you want to preserve. If sending userinfo, is would look something like this:
+
+```java
+                JSONObject data = new JSONObject();
+                try {
+                    data.put("userId", 1234567);
+                    data.put("gender", "male");
+                    data.put("birthYear", 1980);
+                    
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                Pure.associateMetadata("UserInfo", data, new PureCallback<PureResult>() {
+                    @Override
+                    public void onCallback(PureResult result) {
+                        if(result.isSuccess())
+                        {
+                           Log.d(TAG, "The data was successfully registered");
+                        }
+                        else
+                        {
+                           // If not success, something went wrong. Consider retrying the request
+                           Log.w(TAG, "Failed registering the data");
+                        }
+                        
+                    }
+                });
+```
+
+If executing the same call at a later stage, the data will be replaced with the last data in the cloud. If using a different *type* they will both be persisted.
+
+
+### Create event
+To create an event, use *Pure.createEvent(String name, JSONObject data, final PureCallback<PureResult> callback)*. The *name* describes what kind of event this is. If sending order information, it could look something like this:
+
+```java
+                JSONObject data = new JSONObject();
+                try {
+                    data.put("userId", 1234567);
+                    data.put("orderId", 100000);
+                    data.put("timestamp", "2018-02-01T11:49:31+00:00");
+                    
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                Pure.createEvent("Order", data, new PureCallback<PureResult>() {
+                    @Override
+                    public void onCallback(PureResult result) {
+                        if(result.isSuccess())
+                        {
+                           Log.d(TAG, "The event was successfully registered");
+                        }
+                        else
+                        {
+                           // If not success, something went wrong. Consider retrying the request
+                           Log.w(TAG, "Failed registering the event");
+                        }
+                        
+                    }
+                });
+```
+
+*Events will always be added and not replaced, so sending multiple duplicate events will create the same amount of events in the cloud*
+
 ## How does it work?
 The SDK relies on Google Awareness API, and not without reason. It's using the API to look at the current state of the device, and make sure scanning is triggered less frequently if e.g. the device is still and not moving. It's also using the Awareness API to trigger scanning on intervals and when the device has moved a certain threshold. All scanning intervals and movement thresholds are configured from the cloud.
 
