@@ -5,11 +5,9 @@
 The Android SDK is available for applications targeting API level 14 and above. Please note that BLE scanning is only available for users running on API level 18 and later.
 
 ### Dependencies
-The Android SDK uses the Google Awareness API 11.8.0 (play-services-awareness) to gather location data. The dependency is included in the package, but may be overriden by your application. Please note that version 11.6.0 or later is required.
+The Android SDK uses the Google Awareness API (play-services-awareness) to gather location data. The dependency is included in the package, but may be overriden by your application if already using a different version of the Play Services. Please note that version 9.6.0 or later is required.
 
-As the SDK is providing the possibility to target users in other contexts, it also relies on the AdvertisingId of the device. For this reason, the SDK also relies on Google Play Services Ads (play-services-ads).
-
-Both dependencies are a part of Google Play Services (com.google.android.gms), but only those two artifacts are included with the release too make it as small as possible.
+This dependency is part of Google Play Services (com.google.android.gms), but only the awareness artifact is included in the SDK.
 
 ### Installation
 
@@ -20,18 +18,24 @@ Add the following line to your app's `build.gradle`:
 ```groovy
 repositories {
     maven {
-        url <REPOSITORY-URL>
+        credentials {
+                username "<USERNAME>"
+                password "<PASSWORD>"
+        }
+        url 'https://puresdkmaven.azurewebsites.net/artifacts/'
     }
 }
 ```
 
+*The <USERNAME> and <PASSWORD> will be provided by Unacast.*
+
 Add the below line to your app's `build.gradle` inside the `dependencies` section:
 
 ```groovy
-compile 'com.pure:sdk:1+'
+implementation 'com.pure:sdk:1.1.0'
 ```
 
-The above reference will get the latest stable release of the SDK. For even more control, you may reference a specific release. The current latest release is com.pure:sdk:1.0.3 
+The above reference will get the currently latest stable release of the SDK. It is also possible to reference 'com.pure:sdk:1+' to always get the latest release build, but it's recommended to target a specific release. The major version will only change if there's a breaking change in the API. So as long the major version is the same as previously targeted, you should not need to alter any code when upgrading. Notice of any updates to the SDK will be sent through mail once you're a registered developer.
 
 ### Usage
 The SDK is initialized automatically on launch, but it will not gather any data unless you choose to start tracking movement.
