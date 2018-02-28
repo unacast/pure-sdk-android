@@ -5,7 +5,7 @@
 The Android SDK is available for applications targeting API level 14 and above. Please note that BLE scanning is only available for users running on API level 18 and later.
 
 ### Dependencies
-The Android SDK uses the Google Awareness API (play-services-awareness) to gather location data. The dependency is included in the package, but may be overriden by your application if already using a different version of the Play Services. Please note that version 9.6.0 or later is required.
+The Android SDK uses the Google Awareness API (play-services-awareness) to gather location data. The dependency is included in the package (11.6.0), but may be overriden by your application if already using a different version of the Play Services. Please note that version 9.6.0 or later is required.
 
 This dependency is part of Google Play Services (com.google.android.gms), but only the awareness artifact is included in the SDK.
 
@@ -22,7 +22,7 @@ repositories {
                 username "<USERNAME>"
                 password "<PASSWORD>"
         }
-        url 'https://puresdkmaven.azurewebsites.net/artifacts/'
+        url 'https://puresdk.azurewebsites.net/artifacts/'
     }
 }
 ```
@@ -36,6 +36,15 @@ implementation 'com.pure:sdk:1.1.0'
 ```
 
 The above reference will get the currently latest stable release of the SDK. It is also possible to reference 'com.pure:sdk:1+' to always get the latest release build, but it's recommended to target a specific release. The major version will only change if there's a breaking change in the API. So as long the major version is the same as previously targeted, you should not need to alter any code when upgrading. Notice of any updates to the SDK will be sent through mail once you're a registered developer.
+
+If you need to downgrade the play-services-awareness version, use *force*:
+
+```groovy
+    implementation ('com.google.android.gms:play-services-awareness:9.6.0')
+    {
+        force = true
+    }
+```
 
 ### Usage
 The SDK is initialized automatically on launch, but it will not gather any data unless you choose to start tracking movement.
