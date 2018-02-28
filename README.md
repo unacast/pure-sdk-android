@@ -27,7 +27,7 @@ repositories {
 }
 ```
 
-*The <USERNAME> and <PASSWORD> will be provided by Unacast.*
+*The USERNAME and PASSWORD will be provided by Unacast.*
 
 Add the below line to your app's `build.gradle` inside the `dependencies` section:
 
