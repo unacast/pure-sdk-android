@@ -46,6 +46,10 @@ If you need to downgrade the play-services-awareness version, use *force*:
     }
 ```
 
+##### Download
+
+It's also possible to download the SDK. Head to http://puresdk.azurewebsites.net/ and login with your USERNAME and PASSWORD and download the *internal* artifact together with the *sdk* artifact
+
 ### Usage
 The SDK is initialized automatically on launch, but it will not gather any data unless you choose to start tracking movement.
 Starting tracking of the users movement is done by the following snippet:
