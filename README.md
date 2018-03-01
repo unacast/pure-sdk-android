@@ -143,6 +143,9 @@ public void onRequestPermissionsResult(int requestCode,
 
 It's very important to ask for these permissions at the right time to get as many users as possible to opt in. Some guidelines and best pracices are published here: <PLACEHOLDER> 
 
+### Check if tracking is enabled
+It's recommended to have a switch under settings in your app where the user can enable and disable tracking. The current status can be checked by *Pure.getIsTracking()*
+
 ### Configuration
 All configurations used by the SDK is provided by an external endpoint. This makes it possible to change the configuration without releasing a new version of the application. It also makes it possible to use different configurations based on things like device type, android version, etc.
 
