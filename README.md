@@ -9,6 +9,8 @@ The Android SDK uses the Google Awareness API (play-services-awareness) to gathe
 
 This dependency is part of Google Play Services (com.google.android.gms), but only the awareness artifact is included in the SDK.
 
+*Please note that we only use the Awareness API for detecting device state for battery optimizations in addition to Location and Timefences and never call the Places API or any other Google service that might incur costs. No API keys are needed during the implementation of the SDK*
+
 ### Installation
 
 #### Adding to your project
