@@ -48,6 +48,13 @@ If you need to downgrade the play-services-awareness version, use *force*:
     }
 ```
 
+#### Proguard
+If you are using proguard, make sure to add this line to your proguard definition
+
+```java
+-keepclassmembers class com.pure.internal.models.** { *; }
+```
+
 ##### Download
 
 It's also possible to download the SDK. Head to http://puresdk.azurewebsites.net/ and login with your USERNAME and PASSWORD and download the *internal* artifact together with the *sdk* artifact
@@ -370,12 +377,6 @@ By default, it will not send any events unless tracking is enabled. If you want 
                 });
 ```
 
-## Proguard
-If you are using proguard, make sure to add this line to your proguard definition
-
-```java
--keepclassmembers class com.pure.internal.models.** { *; }
-```
 
 ## How does the SDK work?
 The SDK relies on Google Awareness API, and not without reason. It's using the API to look at the current state of the device, and make sure scanning is triggered less frequently if e.g. the device is still and not moving. It's also using the Awareness API to trigger scanning on intervals and when the device has moved a certain threshold. All scanning intervals and movement thresholds are configured from the cloud.
