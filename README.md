@@ -202,6 +202,32 @@ As these permissions are automatically merged into your androidmanifest.xml, you
 ```
 *Note that you need to add the tools namespace (xmlns:tools="http://schemas.android.com/tools") in the manifest element to get this option*
 
+#### Initialization
+The SDK is initialized automatically by default. If you need to override this behaviour, you can do this by adding the following metadata to your AndroidManifest:
+
+```xml
+
+    <meta-data android:name="com.pure.sdk.AutoInit" android:value="false" />
+
+```
+
+To then do your manual init of the SDK, add the following code:
+
+```java
+
+                Pure.init(getApplicationContext(), new PureCallback<PureResult>() {
+                    
+                    @Override
+                    public void onCallback(PureResult pureResult) {
+
+                        if(pureResult.getResultCode() == PureResult.PURE_INIT_SUCCESS)
+                        {
+                            Log.d(TAG, "Successfully initialized Pure");
+                        }
+                    }
+                });
+
+```
 
 ## What kinds of data does the SDK collect
 With the default configuration, the SDK will collect information about nearby wifis, geo location and BLE devices (iBeacon, Eddystone and RawBle). These data comes with information about the device, battery levels, etc.
@@ -382,3 +408,18 @@ By default, it will not send any events unless tracking is enabled. If you want 
 The SDK relies on Google Awareness API, and not without reason. It's using the API to look at the current state of the device, and make sure scanning is triggered less frequently if e.g. the device is still and not moving. It's also using the Awareness API to trigger scanning on intervals and when the device has moved a certain threshold. All scanning intervals and movement thresholds are configured from the cloud.
 
 In the default configuration, the SDK will used JobScheduler on Android 5+ to further preserve battery. This makes the OS stack up any pending jobs, and make sure it only runs on optimal times. It is possible to override this behaviour through the cloud config, but recommended behaviour is to allow the OS to pick the best windows for scanning and reporting data.
+
+
+## Troubleshooting
+If you experience any issues implementing the SDK the first thing you should do, is look for any warnings in the log.
+
+*SDK is unsupported on SDK versions prior to 14* means that the device is running on a OS version not supported by the SDK
+
+*Google Play Services not available. PureSDK will be disabled.* means that we couldn't find Play Services on the device and SDK will be disabled
+
+*Context was null. Unable to initialize.* if you get this warning, the SDK was unable to aquire the application context. This shouldn't happen, but if it do, please contact us for help debugging your exact configuration.
+
+To verify the initialization was successful, look for *Init completed*
+
+If you are doing a manual initialization, you will get the various through *getResultCode()* in the callback. 
+
