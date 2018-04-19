@@ -411,7 +411,7 @@ In the default configuration, the SDK will used JobScheduler on Android 5+ to fu
 
 
 ## Troubleshooting
-If you experience any issues implementing the SDK the first thing you should do, is look for any warnings in the log.
+If you experience any issues implementing the SDK, the first thing you should do is look for any warnings in the log.
 
 *SDK is unsupported on SDK versions prior to 14* means that the device is running on a OS version not supported by the SDK
 
