@@ -59,15 +59,15 @@ If you are using proguard, make sure to add this line to your proguard definitio
 
 It's also possible to download the SDK. Head to http://puresdk.azurewebsites.net/ and login with your USERNAME and PASSWORD and download the *internal* artifact together with the *sdk* artifact
 
-### Usage
-The SDK is initialized automatically on launch, but it will not gather any data unless you choose to start tracking movement.
+### How to use it
+The SDK is initialized automatically on launch by default, but it will not gather any data unless you choose to start tracking movement.
 Starting tracking of the users movement is done by the following snippet:
 
 ```java
 Pure.startTracking()
 ```
 
-Likewise, if you for some reason wants to stop tracking the device, you can do that by calling:
+It is recommended to give the user a way to opt out of the tracking at a later stage (e.g a check box under app settings or profile settings). This is done by calling:
 
 ```java
 Pure.stopTracking()
@@ -150,7 +150,9 @@ public void onRequestPermissionsResult(int requestCode,
 
 **Please note that for tracking to start immediately after location permission is accepted, call Pure.startTracking() as soon as the permission is granted.**
 
-It's very important to ask for these permissions at the right time to get as many users as possible to opt in. Some guidelines and best pracices are published here: <PLACEHOLDER> 
+### Onboarding
+
+It's important to ask for these permissions at the right time to get as many users as possible to opt in and to give a better user experience. Users should be presented with a reason for requesting location permission before triggering the actual OS permission dialog and you should also explain this in the terms together with how a user can opt out from tracking later on. Please contact Unacast if you need any language regarding this. There could also be scenarios where you want to trigger onboarding only for citizens of certain countries. Checking the country code and time zone of the device, could be a good way to do this.
 
 ### Check if tracking is enabled
 It's recommended to have a switch under settings in your app where the user can enable and disable tracking. The current status can be checked by *Pure.getIsTracking()*
