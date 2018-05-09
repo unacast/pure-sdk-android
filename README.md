@@ -413,7 +413,7 @@ In the default configuration, the SDK will used JobScheduler on Android 5+ to fu
 
 
 ## Geo-filtering
-The SDK has built in support for geo-filtering. This means that if you need to blacklist or whitelist any areas this can be done through the cloud configuration. If you need to use geo-filtering, please contact Unacast to agree on which areas you want to enable.
+The SDK has built in support for geo-filtering. This means that if you need to blacklist or whitelist any areas this can be done through the cloud configuration. If you need to use geo-filtering, please contact Unacast to agree on which areas you want to enable. If an area is blacklisted, the SDK will go into blacklist mode and not send any data. It will still do the occational location lookup to see if the device has moved to a valid location, but it will not send these events while in blacklisted areas. 
 
 
 ## Troubleshooting
