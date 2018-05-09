@@ -34,7 +34,7 @@ repositories {
 Add the below line to your app's `build.gradle` inside the `dependencies` section:
 
 ```groovy
-implementation 'com.pure:sdk:1.2.6'
+implementation 'com.pure:sdk:1.2.7'
 ```
 
 The above reference will get the currently latest stable release of the SDK. It is also possible to reference 'com.pure:sdk:1+' to always get the latest release build, but it's recommended to target a specific release. The major version will only change if there's a breaking change in the API. So as long the major version is the same as previously targeted, you should not need to alter any code when upgrading. Notice of any updates to the SDK will be sent through mail once you're a registered developer.
@@ -410,6 +410,10 @@ By default, it will not send any events unless tracking is enabled. If you want 
 The SDK relies on Google Awareness API, and not without reason. It's using the API to look at the current state of the device, and make sure scanning is triggered less frequently if e.g. the device is still and not moving. It's also using the Awareness API to trigger scanning on intervals and when the device has moved a certain threshold. All scanning intervals and movement thresholds are configured from the cloud.
 
 In the default configuration, the SDK will used JobScheduler on Android 5+ to further preserve battery. This makes the OS stack up any pending jobs, and make sure it only runs on optimal times. It is possible to override this behaviour through the cloud config, but recommended behaviour is to allow the OS to pick the best windows for scanning and reporting data.
+
+
+## Geo-filtering
+The SDK has built in support for geo-filtering. This means that if you need to blacklist or whitelist any areas this can be done through the cloud configuration. If you need to use geo-filtering, please contact Unacast to agree on which areas you want to enable.
 
 
 ## Troubleshooting
