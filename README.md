@@ -34,10 +34,10 @@ repositories {
 Add the below line to your app's `build.gradle` inside the `dependencies` section:
 
 ```groovy
-implementation 'com.pure:sdk:1.2.7'
+implementation 'com.pure:sdk:1.2.9'
 ```
 
-The above reference will get the currently latest stable release of the SDK. It is also possible to reference 'com.pure:sdk:1+' to always get the latest release build, but it's recommended to target a specific release. The major version will only change if there's a breaking change in the API. So as long the major version is the same as previously targeted, you should not need to alter any code when upgrading. Notice of any updates to the SDK will be sent through mail once you're a registered developer.
+The above reference will get the currently latest stable release of the SDK ([Changelog](Changelog/)). It is also possible to reference 'com.pure:sdk:1+' to always get the latest release build, but it's recommended to target a specific release. The major version will only change if there's a breaking change in the API. So as long the major version is the same as previously targeted, you should not need to alter any code when upgrading. Notice of any updates to the SDK will be sent through mail once you're a registered developer.
 
 If you need to downgrade the play-services-awareness version, use *force*:
 
@@ -203,6 +203,21 @@ As these permissions are automatically merged into your androidmanifest.xml, you
 <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" tools:node="remove" />
 ```
 *Note that you need to add the tools namespace (xmlns:tools="http://schemas.android.com/tools") in the manifest element to get this option*
+
+
+##### Getting your clientId
+If you need to get hold of the clientId, you can do so with the following snippet
+
+```java
+
+                Pure.getClientId(new PureCallback<String>() {
+                    @Override
+                    public void onCallback(String clientId) {
+                        Log.d(TAG, clientId);
+                    }
+                });
+
+```
 
 #### Initialization
 The SDK is initialized automatically by default. If you need to override this behaviour, you can do this by adding the following metadata to your AndroidManifest:
