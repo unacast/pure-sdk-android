@@ -3,6 +3,11 @@
 
 ## Changelog
 
+### 1.2.10
+- [BUG] Fixed issue where stopping a job could result in work being executed in the main thread
+- [BUG] Better handling of situations where BluetoothLeScanner is unavailable
+- More Permission check exceptions are warnings rather than errors
+
 ### 1.2.9
 - [BUG] Fixed issue where wifi SSID was null
 - [BUG] Fixed issue where batteryStatus was unavailable
