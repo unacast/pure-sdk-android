@@ -3,6 +3,9 @@
 
 ## Changelog
 
+### 1.2.11
+- Added undetermined check on location permission
+
 ### 1.2.10
 - [BUG] Fixed issue where stopping a job could result in work being executed in the main thread
 - [BUG] Better handling of situations where BluetoothLeScanner is unavailable
