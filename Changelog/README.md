@@ -3,6 +3,9 @@
 
 ## Changelog
 
+### 1.2.12
+- Fixed issue with config updates requested too often when a device was running low on resources and application was terminated by the OS
+
 ### 1.2.11
 - Added undetermined check on location permission
 
