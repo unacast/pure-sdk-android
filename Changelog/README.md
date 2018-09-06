@@ -3,6 +3,12 @@
 
 ## Changelog
 
+### 1.2.14
+- Added reporting of LocationServicesEnabled and BluetoothEnabled status in config pings
+
+### 1.2.13
+- Fixed bug in config updates not respecting the cloud interval if more frequent than 10 hours.
+
 ### 1.2.12
 - Fixed issue with config updates requested too often when a device was running low on resources and application was terminated by the OS
 
