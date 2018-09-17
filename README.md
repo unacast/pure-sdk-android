@@ -48,6 +48,8 @@ If you need to downgrade the play-services-awareness version, use *force*:
     }
 ```
 
+*IMPORTANT!* If targeting 15+, you need to include a reference to 'com.google.android.gms:play-services-ads' as this artifact has been removed from awareness from that version. 
+
 #### Proguard
 If you are using proguard, make sure to add this line to your proguard definition
 
