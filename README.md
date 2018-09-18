@@ -248,7 +248,7 @@ To then do your manual init of the SDK, add the following code:
 
 ```
 
-*IMPORTANT* If you are using your own initialization logic, make sure this is done in the context of application.onCreate(). If the application is terminated either by the user or the OS, it will relaunch the application, but not the activities. If initialization is done in an activity, this will prevent the SDK gathering any data unless the application is actually launched by the user.
+*IMPORTANT* If you are using your own initialization logic, make sure this is done in the context of application.onCreate(). If the application is terminated either by the user or the OS, it will relaunch the application, but not the activities. If initialization is done in an activity, this will prevent the SDK gathering any data unless the application is launched by the user.
 
 If your intialization logic return false on application.onCreate(), and the user later in the app life cycle gives consent to tracking, you should immediately trigger Pure.init() in the current context, and then subsequently on each application.onCreate().
 
