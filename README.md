@@ -436,7 +436,7 @@ In the default configuration, the SDK will used JobScheduler on Android 5+ to fu
 
 
 ## Encryption
-From version 1.2.15 and later, the SDK supports an extra encryption layer in addition to regular network encryption. Upon request, the app will be configured to encrypt all data sent to our servers. If configured, the app will receive a public RSA key from our configuration servers. This tells the app that all data transfered should be encrypted. The app will generate an AES secret, encrypt the payload with this key and then encrypt the AES secret using the public key aquired from the server. The encrypted AES secret will then be added to the request and our server will decrypt the secret using the private key known only by the server to aquire the actual AES secret for decrypting the payload.
+From version 1.2.15 and later, the SDK supports an extra encryption layer in addition to regular network encryption. Upon request, the SDK will be configured to encrypt all data sent to our servers. If configured, the SDK will receive a public RSA key from our configuration servers. This tells the SDK that all data transfered should be encrypted. The SDK will generate an AES secret, encrypt the payload with this key and then encrypt the AES secret using the public key aquired from the server. The encrypted AES secret will then be added to the request and our server will decrypt the secret using the private key known only by the server to aquire the actual AES secret for decrypting the payload.
 
 
 ## Geo-filtering
