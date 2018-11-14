@@ -3,6 +3,9 @@
 
 ## Changelog
 
+### 1.2.15
+- Added optional data encryption
+
 ### 1.2.14
 - Added reporting of LocationServicesEnabled and BluetoothEnabled status in config pings
 
