@@ -34,7 +34,7 @@ repositories {
 Add the below line to your app's `build.gradle` inside the `dependencies` section:
 
 ```groovy
-implementation 'com.pure:sdk:1.2.14'
+implementation 'com.pure:sdk:1.2.15'
 ```
 
 The above reference will get the currently latest stable release of the SDK ([Changelog](Changelog/)). It is also possible to reference 'com.pure:sdk:1+' to always get the latest release build, but it's recommended to target a specific release. The major version will only change if there's a breaking change in the API. So as long the major version is the same as previously targeted, you should not need to alter any code when upgrading. Notice of any updates to the SDK will be sent through mail once you're a registered developer.
@@ -59,7 +59,7 @@ If you are using proguard, make sure to add this line to your proguard definitio
 
 ##### Download
 
-It's also possible to download the SDK. Head to http://puresdk.azurewebsites.net/ and login with your USERNAME and PASSWORD and download the *internal* artifact together with the *sdk* artifact
+It's also possible to download the SDK. Head over to https://puresdk.azurewebsites.net/ and login with your USERNAME and PASSWORD and download the *internal* artifact together with the *sdk* artifact
 
 ### How to use it
 The SDK is initialized automatically on launch by default, but it will not gather any data unless you choose to start tracking movement.
@@ -433,6 +433,10 @@ By default, it will not send any events unless tracking is enabled. If you want 
 The SDK relies on Google Awareness API, and not without reason. It's using the API to look at the current state of the device, and make sure scanning is triggered less frequently if e.g. the device is still and not moving. It's also using the Awareness API to trigger scanning on intervals and when the device has moved a certain threshold. All scanning intervals and movement thresholds are configured from the cloud.
 
 In the default configuration, the SDK will used JobScheduler on Android 5+ to further preserve battery. This makes the OS stack up any pending jobs, and make sure it only runs on optimal times. It is possible to override this behaviour through the cloud config, but recommended behaviour is to allow the OS to pick the best windows for scanning and reporting data.
+
+
+## Encryption
+From version 1.2.15 and later, the SDK supports an extra encryption layer in addition to regular network encryption. Upon request, the app will be configured to encrypt all data sent to our servers. If configured, the app will receive a public RSA key from our configuration servers. This tells the app that all data transfered should be encrypted. The app will generate an AES secret, encrypt the payload with this key and then encrypt the AES secret using the public key aquired from the server. The encrypted AES secret will then be added to the request and our server will decrypt the secret using the private key known only by the server to aquire the actual AES secret for decrypting the payload.
 
 
 ## Geo-filtering
