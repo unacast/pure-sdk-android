@@ -34,7 +34,7 @@ repositories {
 Add the below line to your app's `build.gradle` inside the `dependencies` section:
 
 ```groovy
-implementation 'com.pure:sdk:1.2.15'
+implementation 'com.pure:sdk:1.2.19'
 ```
 
 The above reference will get the currently latest stable release of the SDK ([Changelog](Changelog/)). It is also possible to reference 'com.pure:sdk:1+' to always get the latest release build, but it's recommended to target a specific release. The major version will only change if there's a breaking change in the API. So as long the major version is the same as previously targeted, you should not need to alter any code when upgrading. Notice of any updates to the SDK will be sent through mail once you're a registered developer.
@@ -166,7 +166,7 @@ All configurations used by the SDK is provided by an external endpoint. This mak
 The SDK relies on scanning jobs running in the background. As these needs an application unique jobid, it's possible to change the range being used in case of collision with your own application. This is done by adding the following in your AndroidManifest.xml:
 
 ```xml
-<metadata android:name="com.pure.sdk.JobIdStartId">47483640</metadata>
+<meta-data android:name="com.pure.sdk.JobIdStartId" android:value="47483640" />
 ```
 The default start index is 47483640 and the SDK reserves 20 ids starting from the default.
 
