@@ -3,25 +3,6 @@
 
 ## Changelog
 
-### 1.2.25
-- Fixed issue with log not being cleared if reaching the entry limit
-
-### 1.2.24
-- Now ignores accuracy and bearing properties if not available
-
-### 1.2.23
-- Added missing Id4 for cell info
-
-### 1.2.22
-- Fixed timestamps in cell info
-
-### 1.2.21
-- CellInfo collection is now configurable
-
-### 1.2.20
-- Added CellInfo
-- New metrics collected for Wifi
-
 ### 1.2.19
 - Now reports if Play Services is missing permissions
 - The SDK should now prevent Play Services from reporting apps using the SDK if any permission is missing
