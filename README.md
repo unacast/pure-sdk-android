@@ -39,11 +39,12 @@ implementation 'com.pure:sdk:1.2.26'
 
 The above reference will get the currently latest stable release of the SDK ([Changelog](Changelog/)). It is also possible to reference 'com.pure:sdk:1+' to always get the latest release build, but it's recommended to target a specific release. The major version will only change if there's a breaking change in the API. So as long the major version is the same as previously targeted, you should not need to alter any code when upgrading. Notice of any updates to the SDK will be sent through mail once you're a registered developer.
 
-Add the following implementations to your **app** `build.gradle` dependencies:
-`com.google.android.gms:play-services-ads`
-`com.google.android.gms:play-services-awareness`
 
-*IMPORTANT!* If targeting 15+, you need to include a reference to 'com.google.android.gms:play-services-ads' as this artifact has been removed from awareness from that version. 
+*IMPORTANT!* If targeting 15+, you need to include a reference to the following dependencies in your  **app** `build.gradle`:
+
+
+- `com.google.android.gms:play-services-ads-identifier`
+- `com.google.android.gms:play-services-awareness`
 
 #### Proguard
 If you are using proguard, make sure to add this line to your proguard definition
