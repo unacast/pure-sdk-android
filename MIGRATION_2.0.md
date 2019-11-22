@@ -80,8 +80,7 @@ dependencies {
 
 - Method signature for `createEvent` now uses `OnPureCompleteListener` instead of `PureCallback` and Pure has to be accessed with `getInstance(applicationContext)`
 
+### Proguard
+If you're using proguard, the following line has to be added:  
 
-
-
-
-
+`-keep class com.pure.sdk.** { *;}`
